@@ -9,7 +9,7 @@ export default function WebsiteURL() {
     setUrl(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!url) {
@@ -34,9 +34,18 @@ export default function WebsiteURL() {
     }
 
     try {
-      // const respone = await fetch("/stride/url", {
-      //     method: "GET",
-      // })
+      const respone = await fetch("/skrape/url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url }),
+      });
+
+      if (!respone.ok) {
+        setError(
+          "An error occurred skraping your webstie. Please try again later."
+        );
+        return;
+      }
     } catch (err) {
       setError(
         "An error occurred skraping your webstie. Please try again later."
@@ -47,8 +56,6 @@ export default function WebsiteURL() {
     setError(null);
     setUrl("");
   };
-
-  console.log(url);
 
   return (
     <>

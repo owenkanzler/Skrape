@@ -17,6 +17,7 @@ def skrape():
     skraped_content = skrape_website(url)
 
     if skraped_content:
+        print(f"Skraped Content: {skraped_content[:5000]}")
         return jsonify({"message": "URL sucessfully skraped"}), 200
     
     return jsonify({"error": "Failed to skrape URL"}), 500
