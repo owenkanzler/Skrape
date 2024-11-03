@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Send } from "lucide-react";
 
 export default function WebsiteURL() {
   const [url, setUrl] = useState("");
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const savedUrl = localStorage.getItem("url");
+    if (savedUrl) {
+      setUrl(JSON.parse(savedUrl));
+    }
+  }, []);
 
   const handleChange = (e) => {
     setUrl(e.target.value);
@@ -33,16 +40,20 @@ export default function WebsiteURL() {
       return;
     }
 
+    console.log("Submitting URL:", url);
+
     try {
-      const respone = await fetch("/skrape/url", {
+      const response = await fetch("/skrape/url", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),
       });
 
-      if (!respone.ok) {
+      if (!response.ok) {
+        const errorData = await response.json(); // Get the detailed error response
         setError(
-          "An error occurred skraping your webstie. Please try again later."
+          errorData.error ||
+            "An error occurred scraping your website. Please try again later."
         );
         return;
       }
@@ -52,7 +63,7 @@ export default function WebsiteURL() {
       );
     }
 
-    console.log("Submitted");
+    localStorage.setItem("url", JSON.stringify(url));
     setError(null);
     setUrl("");
   };

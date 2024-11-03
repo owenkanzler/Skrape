@@ -81,6 +81,7 @@ export default function Menu() {
             <h2 className="font-medium">Creator Links:</h2>
             {links.map((link, i) => (
               <motion.div
+                key={i}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}

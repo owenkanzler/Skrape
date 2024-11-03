@@ -12,15 +12,18 @@ def skrape():
     url = data.get('url')
 
     if not url:
-        return jsonify({"error": "No URL provided"}), 400
+        return jsonify({"error": "No URL provided"}), 400  # This specific error message will clarify if `url` is missing
     
-    skraped_content = skrape_website(url)
+    try:
+        skraped_content = skrape_website(url)
+        if skraped_content:
+            return jsonify({"message": "URL successfully skraped"}), 200
+        else:
+            return jsonify({"error": "Site is unskrapable"}), 400
+    except Exception as e:
+        print(f"Error scraping URL: {e}")
+        return jsonify({"error": f"Server error: {str(e)}"}), 500
 
-    if skraped_content:
-        print(f"Skraped Content: {skraped_content[:5000]}")
-        return jsonify({"message": "URL sucessfully skraped"}), 200
-    
-    return jsonify({"error": "Failed to skrape URL"}), 500
 
 
 @skrape_bp.route('/ask', methods=['POST'])
