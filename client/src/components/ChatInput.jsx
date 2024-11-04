@@ -52,7 +52,7 @@ export default function ChatInput({ addPost }) {
     <div className="relative">
       <form
         onSubmit={handleSubmit}
-        className="flex justify-between items-center bg-bg2 border border-border border-[.5px] p-3 rounded-lg w-full fixed bottom-[3rem] max-w-[904px]"
+        className="flex justify-between items-center bg-bg2 border border-border border-[.5px] p-3 rounded-lg w-full "
       >
         <input
           type="text"

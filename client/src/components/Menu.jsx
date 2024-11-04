@@ -60,7 +60,7 @@ export default function Menu() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative order-1">
       <div
         ref={popupRef}
         onClick={toggleMenu}

@@ -17,6 +17,10 @@ body {
   overflow: hidden;
 }
 
+#root {
+  width: 100vw;
+}
+
 ::-webkit-scrollbar {
   width: 7px;
 }

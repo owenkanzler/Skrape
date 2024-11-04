@@ -70,10 +70,10 @@ export default function WebsiteURL() {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative order-2 sm:order-1 w-full">
         <form
           onSubmit={handleSubmit}
-          className="w-[400px] border-b border-text2 flex justify-between items-center"
+          className="w-full md:w-[400px] border-b border-text2 flex gap-4 justify-between items-center"
         >
           <input
             type="text"

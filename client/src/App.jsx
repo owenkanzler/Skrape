@@ -28,7 +28,7 @@ function App() {
     <>
       <main className="max-w-[1000px] mx-auto p-12 h-screen flex flex-col gap-4 justify-between">
         <div>
-          <div className="w-full flex justify-between items-end">
+          <div className="w-full flex flex-col sm:flex-row justify-between items-end gap-4">
             <WebsiteURL />
             <Menu />
           </div>
@@ -49,8 +49,8 @@ function App() {
         </div>
         <div className="overflow-scroll">
           <Posts posts={posts} />
-          <ChatInput addPost={addPost} />
         </div>
+        <ChatInput addPost={addPost} />
       </main>
       <div className="z-[-1] blur-[1000px] w-[800px] h-[600px] bg-text rounded-full absolute top-[-500px] right-[-200px] opacity-60" />
     </>
