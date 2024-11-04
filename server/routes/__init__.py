@@ -1,3 +1,3 @@
-from .skrape import skrape_bp  # Import the skrape_bp blueprint
+from .skrape import skrape_bp
 
 __all__ = ['skrape_bp']
