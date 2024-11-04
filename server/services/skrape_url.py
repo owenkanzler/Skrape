@@ -1,9 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 from openai import OpenAI
+import os
+from config import OPENAI_API_KEY 
 
 client = OpenAI(
-    api_key = "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"
+    api_key = OPENAI_API_KEY,
 )
 
 def skrape_website(url):

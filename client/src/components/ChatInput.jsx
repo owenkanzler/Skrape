@@ -66,7 +66,7 @@ export default function ChatInput({ addPost }) {
         </button>
       </form>
       {error && (
-        <p className="text-error text-xs absolute bottom-[-21px]">{error}</p>
+        <p className="text-error text-xs fixed bottom-[1.8rem]">{error}</p>
       )}
     </div>
   );
