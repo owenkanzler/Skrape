@@ -12,7 +12,7 @@ def skrape():
     url = data.get('url')
 
     if not url:
-        return jsonify({"error": "No URL provided"}), 400  # This specific error message will clarify if `url` is missing
+        return jsonify({"error": "No URL provided"}), 400  
     
     try:
         skraped_content = skrape_website(url)

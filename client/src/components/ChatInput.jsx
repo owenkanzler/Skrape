@@ -44,7 +44,6 @@ export default function ChatInput({ addPost }) {
       setError("An error occurred. Please try again later.");
     }
 
-    console.log("Submitted");
     setError(null);
     setQuestion("");
   };

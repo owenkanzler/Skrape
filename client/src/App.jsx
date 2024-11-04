@@ -47,7 +47,7 @@ function App() {
             </div>
           )}
         </div>
-        <div className="overflow-scroll">
+        <div className="overflow-y-scroll mt-auto">
           <Posts posts={posts} />
         </div>
         <ChatInput addPost={addPost} />

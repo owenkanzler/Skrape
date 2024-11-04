@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 from openai import OpenAI
-import os
 from config import OPENAI_API_KEY 
 
 client = OpenAI(
@@ -44,7 +43,6 @@ def ask_question(content, question):
         return None
 
     answer = response.choices[0].message.content.strip()
-    print(answer)
 
     return answer
 
